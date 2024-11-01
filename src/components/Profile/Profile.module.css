@@ -1,0 +1,87 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
+}
+.card {
+  /* width: 40%; */
+  /* height: 600px; */
+  overflow: hidden;
+  border: 2px solid black;
+  border-radius: 1%;
+  box-sizing: border-box;
+  box-shadow: 0 0 4px 6px lightgray;
+}
+.topPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.image {
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  /* border-radius: 50%; */
+  /* box-shadow: 0 0 8px 10px lightgray; */
+  background-color: black;
+  border-radius: 50%;
+}
+.name {
+  font-size: 24px;
+  text-align: center;
+  color: black;
+  margin: 0;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.listItem:first-child {
+  border-left: none;
+}
+
+.listItem:last-child {
+  border-right: none;
+}
+.listItem {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid gray;
+  border-top: 2px solid gray;
+  box-sizing: border-box;
+  border-bottom: none;
+  background-color: lightgray;
+  color: black;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+.textTag {
+  color: gray;
+  margin: 0;
+}
+.textLoc {
+  color: gray;
+  margin: 0;
+}
+
+.textStat {
+  /* margin: 0; */
+  padding-top: 10px;
+  color: black;
+  font-weight: 400;
+  margin: 4px;
+}
+
+.textTag::before {
+  content: "@";
+}
