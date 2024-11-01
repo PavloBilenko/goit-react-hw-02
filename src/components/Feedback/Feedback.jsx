@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types"; // Імпортуємо PropTypes
 import s from "./Feedback.module.css";
 

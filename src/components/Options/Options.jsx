@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
 import s from "./Options.module.css";
 
@@ -17,6 +16,9 @@ const Options = ({ voteData, setVoteData }) => {
       bad: 0,
     });
   };
+
+  const hasFeedback =
+    voteData.good > 0 || voteData.neutral > 0 || voteData.bad > 0;
 
   return (
     <div className={s.wrapper}>
@@ -45,11 +47,13 @@ const Options = ({ voteData, setVoteData }) => {
             Bad
           </button>
         </li>
-        <li>
-          <button onClick={handleReset} className={s.button}>
-            Reset
-          </button>
-        </li>
+        {hasFeedback && (
+          <li>
+            <button onClick={handleReset} className={s.button}>
+              Reset
+            </button>
+          </li>
+        )}
       </ul>
     </div>
   );

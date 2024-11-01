@@ -1,6 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import "modern-normalize";
 import Description from "./components/Description/Description";
@@ -16,11 +14,14 @@ function App() {
     bad: 0,
   });
 
+  const hasFeedback =
+    voteData.good > 0 || voteData.neutral > 0 || voteData.bad > 0;
+
   return (
     <div>
       <Description />
       <Options voteData={voteData} setVoteData={setVoteData} />
-      <Feedback voteData={voteData} />
+      {hasFeedback && <Feedback voteData={voteData} />}
     </div>
   );
 }
