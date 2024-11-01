@@ -1,10 +1,9 @@
-import PropTypes from "prop-types"; // Імпортуємо PropTypes
+
+import React from "react";
+import PropTypes from "prop-types";
 import s from "./Feedback.module.css";
 
-const Feedback = ({ voteData }) => {
-  const total = voteData.good + voteData.neutral + voteData.bad;
-  const positivePercentage = total > 0 ? (voteData.good / total) * 100 : 0;
-
+const Feedback = ({ voteData, total, positivePercentage }) => {
   return (
     <div className={s.wrapper}>
       <ul className={s.list}>
@@ -26,6 +25,8 @@ Feedback.propTypes = {
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
   }).isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };
 
 export default Feedback;

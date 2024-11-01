@@ -4,8 +4,7 @@ import "modern-normalize";
 import Description from "./components/Description/Description";
 import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
-
-// console.log(profileData);
+import Notification from "./components/Notification/Notification";
 
 function App() {
   const [voteData, setVoteData] = useState(() => {
@@ -17,14 +16,25 @@ function App() {
     localStorage.setItem("voteData", JSON.stringify(voteData));
   }, [voteData]);
 
-  const hasFeedback =
-    voteData.good > 0 || voteData.neutral > 0 || voteData.bad > 0;
+  const totalFeedback = voteData.good + voteData.neutral + voteData.bad;
+  const positivePercentage =
+    totalFeedback > 0 ? (voteData.good / totalFeedback) * 100 : 0;
+
+  const hasFeedback = totalFeedback > 0;
 
   return (
     <div>
       <Description />
       <Options voteData={voteData} setVoteData={setVoteData} />
-      {hasFeedback && <Feedback voteData={voteData} />}
+      {hasFeedback ? (
+        <Feedback
+          voteData={voteData}
+          total={totalFeedback}
+          positivePercentage={positivePercentage}
+        />
+      ) : (
+        <Notification message="No feedback yet" />
+      )}
     </div>
   );
 }

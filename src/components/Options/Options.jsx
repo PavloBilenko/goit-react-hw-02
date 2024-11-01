@@ -1,4 +1,5 @@
-import PropTypes from "prop-types";
+
+import React from "react";
 import s from "./Options.module.css";
 
 const Options = ({ voteData, setVoteData }) => {
@@ -16,9 +17,6 @@ const Options = ({ voteData, setVoteData }) => {
       bad: 0,
     });
   };
-
-  const hasFeedback =
-    voteData.good > 0 || voteData.neutral > 0 || voteData.bad > 0;
 
   return (
     <div className={s.wrapper}>
@@ -47,25 +45,14 @@ const Options = ({ voteData, setVoteData }) => {
             Bad
           </button>
         </li>
-        {hasFeedback && (
-          <li>
-            <button onClick={handleReset} className={s.button}>
-              Reset
-            </button>
-          </li>
-        )}
+        <li>
+          <button onClick={handleReset} className={s.button}>
+            Reset
+          </button>
+        </li>
       </ul>
     </div>
   );
-};
-
-Options.propTypes = {
-  voteData: PropTypes.shape({
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-  }).isRequired,
-  setVoteData: PropTypes.func.isRequired,
 };
 
 export default Options;
