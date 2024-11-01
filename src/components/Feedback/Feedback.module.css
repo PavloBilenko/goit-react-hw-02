@@ -8,10 +8,10 @@
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
-  box-shadow: 0 0 4px 6px lightgray;
+  /* box-shadow: 0 0 4px 6px lightgray; */
 }
 
-.tableNames {
+/* .tableNames {
   background-color: #1e2023;
   align-items: center;
   justify-content: center;
@@ -37,4 +37,4 @@ td {
 
 table tbody tr:nth-child(even) {
   background-color: lightgray; 
-}
+} */
